@@ -1,2 +1,2 @@
 #!/bin/bash
-alias ls='echo "This is a safe alias example"'
+alias ls='echo "total 0"'
