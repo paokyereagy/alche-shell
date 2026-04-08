@@ -1,5 +1,2 @@
 #!/bin/bash
-ls() { 
-  echo "total 0"
-  return 0
-} 
+alias ls='echo "total 0"'
