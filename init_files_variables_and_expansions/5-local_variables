@@ -1,17 +1,3 @@
 #!/bin/bash
-# File: 5-local_variables
-
-# Environment variables
-echo "=== Environment Variables ==="
-printenv
-
-# Local variables
-echo
-echo "=== Local Variables ==="
-set | grep -v '^declare -f'
-
-# Functions
-echo
-echo "=== Functions ==="
-declare -F
+set
 
