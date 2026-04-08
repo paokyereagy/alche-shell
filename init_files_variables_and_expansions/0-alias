@@ -1,2 +1,5 @@
 #!/bin/bash
-alias ls='echo "total 0"'
+ls() { 
+  echo "total 0"
+  return 0
+} 
