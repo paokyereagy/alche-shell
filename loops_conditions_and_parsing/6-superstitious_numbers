@@ -18,7 +18,6 @@ do
       ;;
     *)
       echo "$count"
-      echo "Best School"
       ;;
   esac
   count=$((count + 1))
