@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
-# Read /etc/passwd line by line
-while IFS=: read -r username password _ groupid userinfo homedir shell; do
-  echo "The user $username is part of the $groupid gang, lives in $homedir and rides $shell. USER ID's place is protected by the passcode $password, more info about the user here: $userinfo"
-done < /etc/passwd
+# Define the file path
+FILE="/etc/passwd"
+
+# Use a while loop with IFS set to ':' to parse the seven fields of /etc/passwd
+# Fields are: username, password, UID, GID, ID Info (GECOS), home directory, shell
+while IFS=':' read -r USERNAME PASSWORD USER_ID GROUP_ID USER_ID_INFO HOME_DIRECTORY COMMAND_SHELL
+do
+    echo "The user $USERNAME is part of the $GROUP_ID gang, lives in $HOME_DIRECTORY and rides $COMMAND_SHELL. USER ID's place is protected by the passcode $PASSWORD, more info about the user here: $USER_ID_INFO"
+done < "$FILE"
