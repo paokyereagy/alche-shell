@@ -1,12 +1,5 @@
 #!/usr/bin/env bash
 # Loop through non-hidden files in the current directory
 for file in *; do
-  # Only process if the filename contains an underscore
-  if [[ "$file" == *_* ]]; then
-    # Extract everything after the first underscore
-    echo "${file#*_}"
-  else
-    # If no underscore, display the whole name
-    echo "$file"
-  fi
+  echo "$file"
 done
