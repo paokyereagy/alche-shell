@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 # Loop through non-hidden files in the current directory
-for file in *; do
-  echo "$file"
+# Loop through all items in the current directory
+for item in *; do
+    # Check if the item's name contains a dash
+    if [[ "$item" == *_* ]]; then
+        # Use parameter expansion to remove everything up to and including the first dash
+        # The '#' operator removes the shortest match from the beginning of the string
+        echo "${item#*-}"
+    else
+        # Optional: display items without a dash as they are, or skip them
+        echo "$item"
+    fi
 done
