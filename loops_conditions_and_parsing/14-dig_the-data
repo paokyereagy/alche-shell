@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 # Group by IP and HTTP status code, count occurrences, and sort properly
-awk '{counts[$1" "$9]++} 
-     END {for (key in counts) print counts[key], key}' apache-access.log \
-| sort -k1,1nr -k2,2 -k3,3
+awk '
+{
+  # Count occurrences of each IP + HTTP code pair
+  counts[$1" "$9]++
+}
+END {
+  # Sort by count descending, then by IP, then by code
+  PROCINFO["sorted_in"] = "@val_num_desc"
+  for (key in counts) {
+    print counts[key], key
+  }
+}
+' apache-access.log
