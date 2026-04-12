@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Loop through non-hidden files in the current directory
+for file in *; do
+  # Only process if the filename contains a dash
+  if [[ "$file" == *-* ]]; then
+    # Extract everything after the first dash
+    echo "${file#*-}"
+  fi
+done
